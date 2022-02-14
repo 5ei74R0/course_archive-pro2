@@ -1,0 +1,14 @@
+## Q.10-1
+`static class Inner`は「staticな入れ子クラス」であり、
+外側のクラスのstatic修飾されていないメンバにはアクセスできない。
+この例では`Prob101.s`を参照しようとしているためコンパイルできない。
+
+## Q.10-2
+-> implemented in Prob102.java
+### result
+```stdout
+Let's watch!
+```
+
+## Q.10-3
+-> implemented in Prob103.java

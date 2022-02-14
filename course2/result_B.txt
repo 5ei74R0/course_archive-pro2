@@ -1,0 +1,5 @@
+## Q 2.10
+### result
+```stdout
+The area of the circle is 254.46900494077323, and the circumference is 56.548667764616276
+```

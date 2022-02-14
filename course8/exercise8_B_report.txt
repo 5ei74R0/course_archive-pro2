@@ -1,0 +1,7 @@
+## Q.8-6
+doubleを対象にした場合、
+分母が0だった場合には"Infinity"を出力する。
+これはそもそもゼロ除算の例外を投げていないからである。
+この浮動小数点数の演算は
+https://docs.oracle.com/javase/specs/jls/se16/html/jls-4.html#jls-4.2.3
+にあるような規定に従っている。

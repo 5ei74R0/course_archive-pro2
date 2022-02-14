@@ -1,0 +1,148 @@
+## Q1-1
+- install
+
+
+## Q1-2
+- install
+
+
+## Q1-3
+- test my env.
+
+
+## Q1-4
+### explanation
+- `System.out.println()`と`String.format()`を使用した。
+- しかし別にフォーマットを使う必要はなく、`System.out.println(i + "hogehoge")`のように書ける。
+
+### result
+```stdout
+My name is ???, and my ID number is 000
+1: Hello World!
+2: Hello World!
+3: Hello World!
+Goodbye World!
+```
+
+
+## Q1-5
+### explanation
+```java
+    int i = 3, j = 2;
+    int k = ++i - j++;
+    System.out.println(i + "" + j + "" + k); 
+```
+- 上記の2行目で前置インクリメントと後置インクリメントが使用されている。
+- 前置インクリメントは2項演算`-`よりも先に評価されるが、後置インクリメントは2項演算より後に評価される。
+- そのため、2行目で`k`に代入する値を計算する時には右辺が`4-2`となり`k`の値は`2`となる。
+- 結論として、`i`が4、`j`が3、`k`が2となる。
+
+### result
+```stdout
+432
+```
+
+
+## Q1-6
+### explanation
+```java
+    int i = 13, j = 1;
+    boolean x = i == 13 && j < 0 || i > 0;
+    System.out.println(x);
+```
+- 鍵となるのは2行目の演算子の優先順位である
+- まず`==`と`<`、`>`が評価され、式は`true && false || true`となる。
+- 次に`&&`が`||`よりも先に評価され、`false || true`となる。
+- 最後に論理和が評価され、`x`には`true`が代入される。
+
+### result
+```stdout
+true
+```
+
+
+## Q1-7
+### explanation
+- cm = inch * 2.54で変換する。
+- 桁数を考慮したパディングが面倒だったかもしれない
+
+### result
+```stdout
+ Inch |    cm
+    1 |  2.54
+    2 |  5.08
+    3 |  7.62
+    4 | 10.16
+    5 | 12.70
+    6 | 15.24
+    7 | 17.78
+    8 | 20.32
+    9 | 22.86
+   10 | 25.40
+   11 | 27.94
+   12 | 30.48
+   13 | 33.02
+   14 | 35.56
+   15 | 38.10
+   16 | 40.64
+   17 | 43.18
+   18 | 45.72
+   19 | 48.26
+   20 | 50.80
+   21 | 53.34
+   22 | 55.88
+   23 | 58.42
+   24 | 60.96
+   25 | 63.50
+```
+
+
+## Q1-8
+### explanation
+```java
+    int target = 210409;
+    int max_div = 1;
+    for (int div = 2; div * div <= target; ++div) {
+        if (target % div == 0) {
+            max_div = Math.max(max_div, target / div);
+        }
+    }
+
+    if (max_div == 1) {
+        System.out.println("Given number is prime.");
+    } else {
+        System.out.println("Given number is divisible by " + max_div + ".");
+    }
+```
+- 2から与えられた整数の平方根までの数値を線形に探索して、自身を除いて最も大きい約数を探す。
+- もしそういった約数が1であれば与えられた整数は素数である。
+- そうでなければその値を出力する。
+
+### result
+```stdout
+Given number is divisible by 12377.
+```
+
+
+## Q1-9
+### explanation
+```java
+    int target = 210409;
+    int h = 0, tmp = target;
+    while (tmp > 0) {
+        h += tmp % 10;
+        tmp /= 10;
+    }
+    if (target % h == 0) {
+        System.out.println("Given number is a Harshad Number.");
+    } else {
+        System.out.println("Given number is not a Harshad Number.");
+    }
+```
+- 愚直に各桁の数字の合計を計算して`h`に保持し、与えられた数値が`h`で割りきれるかを判定する。
+
+### result
+```stdout
+Given number is not a Harshad Number.
+```
+

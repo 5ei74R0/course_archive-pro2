@@ -1,0 +1,6 @@
+[book]
+authors = ["OtsuKotsu"]
+language = "ja"
+multilingual = true
+src = "doc"
+title = "Documentation"

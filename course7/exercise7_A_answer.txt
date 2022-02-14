@@ -1,0 +1,51 @@
+## 7-1
+a). `getX()` は`public`で修飾されていないため。
+
+b). `y`は`Point3D`内部で宣言されていないため。もし`Point`内部の`y`の修飾子が
+    `private`ではなく`protected`であれば継承によって`y`が作られ、正しく動作する。
+    また、同一パッケージ内なので`private`を消すだけでも良い。
+
+c). `xpos()`の内部で`getX()`を利用しようとしているが、(a)と同様`getX()` は
+    `public`で修飾されていないため。
+
+## 7-2
+1. 
+    a). java.lang.Object
+
+    b). 標準出力ストリームであり、出力データの受け取りが可能。
+
+    c). boolean
+        char
+        char[]
+        double
+        float
+        int
+        long
+        java.lang.Object
+        java.lang.String
+2. 
+    a). Doubleクラスは基本型のdoubleのラッパークラスである。
+        Doubleクラスは基本型のdoubleとは違い、Stringとの変換などを実現するメソッドを持つ。
+
+    b). AtomicInteger
+        AtomicLong
+        BigDecimal
+        BigInteger
+        Byte
+        ( Double )
+        DoubleAccumulator
+        DoubleAdder
+        Float
+        Integer
+        Long
+        LongAccumulator
+        LongAdder
+        Short
+3. 
+    Randomクラス
+4. 
+    `String aNewString = aString.substring(2, 7);  // (0-indexedであることに注意)`
+
+## 7-3
+- `list.add(new Color())`
+    - String型の要素を格納するArrayListに対してColor型を格納しようとしているため。

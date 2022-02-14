@@ -1,0 +1,20 @@
+## Q. 11-1
+- implemented in Prob111.java
+
+## Q. 11-2
+```Java
+public int gcd(int x, int y) {
+    assert x > 0 && y > 0;
+    // 最大公約数を計算し，その結果を返す．
+}
+```
+
+## Q. 11-3
+1. @FunctionalInterface
+2. 良い
+3. java.util.function
+
+## Q. 11-4
+- implemented in BuggyTest.java
+- `for (int i = 2; i < x / 2; i++) {`では4が漏れる。
+- 1は素数ではないが、これもTrueと判定されてしまう。

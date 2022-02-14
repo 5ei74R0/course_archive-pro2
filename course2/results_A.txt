@@ -1,0 +1,22 @@
+## Q 2.5
+### result
+```stdout
+the distance between (0, 0) and p : 29.0
+the distance between (0, 0) and q : 16.492422502470642
+```
+
+## Q 2.6
+### result
+```stdout
+(20, 21)
+(4, 16)
+```
+
+## Q 2.7
+### result
+```stdout
+1.0 + 2.0i
+3.0 + 4.0i
+a.abs() = 2.23606797749979
+b.abs() = 5.0
+```

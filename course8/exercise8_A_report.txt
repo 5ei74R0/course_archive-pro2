@@ -1,0 +1,86 @@
+## Q.8-1
+### Throw1.java
+- result
+  ```stdout
+  Fruit = apple
+  Let's eat!
+  Exception in thread "main" java.lang.Exception: ORANGE!
+          at Throw1.methodA(Throw1.java:5)
+          at Throw1.main(Throw1.java:12)
+  ```
+- explanation
+  `methodA`の内部のif文で文字列が"orange"であることを検出し、
+  例外を投げている。
+
+### Throw2.java
+- result
+  ```stdout
+  Fruit = apple
+  Let's eat!
+  ORANGE!
+  The actual end
+  ```
+- explanation
+  `methodA`の内部のif文で文字列が"orange"であることを検出して
+  投げられた例外からcatch節でエラーメッセージを取り出して出力し、
+  処理を継続している。
+
+### Throw3.java
+- result
+  ```stdout
+  The finally fruit is apple
+  Fruit = apple
+  Let's eat!
+  The finally fruit is orange
+  ORANGE!
+  The actual end
+  ```
+- explanation
+  まず"apple"に対して`methodA`内のfinal節が処理され、
+  正常に`methodA`が処理される。次に"orange"に対して
+  `methodA`内のfinal節が処理され、`methodA`内のtryで
+  投げられた例外を`main`のcatch節で処理する。その後`main`
+  が最後まで実行される。
+
+
+## Q.8-2
+- result
+  ```stdout
+  Before a
+  Before b
+  Before c
+  banana
+  c: finally
+  b: finally
+  a: java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3
+  a: finally
+  After a
+  main: finally
+  ```
+- explanation
+  例外の連鎖を作っている。
+  "Before A"を出力した後`a()`を呼んで
+  "Before B"を出力し、さらに`b()`を呼んで
+  "Before C"を出力し、さらに`c()`を呼ぶ。
+  `c()`では要素の2番目(0-indexed)を出力("banana")した後
+  `get(3)`によって配列外参照を起こして、finally節を処理した後で
+  `IndexOutOfBoundsException`を投げ、`b()`でそれを受け取り、
+  finally節を処理した後でそれを`a()`に投げ、`a()`の中のcatch節で
+  `c()`で起こした例外をキャッチし、出力する。
+  そしてcatch節の処理の後でfinally節を処理し、
+  やっと`main`のtry節の中に戻ってくる。そして"After a"を出力
+  してfinally節で"main: finally"を出力する。また、
+  `c()`で発生した例外は既に`a()`でキャッチしているため、mainでの
+  キャッチは発生していない。
+
+
+## Q.8-3
+  `catch (NumberFormatException e)`の
+  前に`catch (Exception e)`がある。すると、
+  `catch (Exception e)`はそのサブクラスである
+  `NumberFormatException`についても処理できる
+  ので、`catch (NumberFormatException e)`
+  に例外が到達することはない。
+  つまり`catch (NumberFormatException e)`は
+  Unreachable catch blockになっているため、コンパイル
+  が通らない。

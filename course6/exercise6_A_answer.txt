@@ -1,0 +1,46 @@
+## Q 6.1
+    ### result
+        ```stdout
+        a) true
+        b) false
+        c) true
+        d) true
+        e) true
+        f) true
+        ```
+    
+    ### explanation
+        a) AはAなので`true`
+        b) AはBのスーパークラスであり、BでもBの子孫のクラスでもないので`false`
+        c) BはAのサブクラスなので`true`
+        d) BはBなので`true`
+        e) AはObjectのサブクラスなので`true`
+        f) BはObjectのサブクラスであるAのサブクラスなので`true`
+
+
+## Q 6.2
+    ### explanation
+        `A.methodX()`は`final`修飾子がついているので
+        `B`でこれをオーバーライドすることはできないから。
+
+
+## Q 6.3
+    ### 3.1
+        まずはUser.javaの実行結果を示す。
+        ```stdout
+        W is called
+        Y is called
+        Z is called
+        X is called
+        I is shown
+        Z is called
+        Z is shown
+        ```
+        - 1行目は`testClass(w)`が`W.showMessage()`を呼んだ結果である。
+        - 2行目は`testClass(y)`がY上でオーバーライドされた`Y.showMessage()`を呼んだ結果である。
+        - 3行目は`testClass(z)`がZ上でオーバーライドされた`Z.showMessage()`を呼んだ結果である。
+        - 4,5行目は`testInterface(x)`が、X上でオーバーライドされた`X.showMessage()`と、オーバーライドされていない`I.show()`を呼んだ結果である。
+        - 6,7行目は`testInterface(z)`が、Z上でオーバーライドされた`Z.showMessage()`と、Z上でオーバーライドされた`Z.show()`を呼んだ結果である。
+
+    ### 3.2
+        `X`はクラス`W`を継承していないため、`testClass()`のシグニチャに合致しないから。

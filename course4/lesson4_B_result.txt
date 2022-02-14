@@ -1,0 +1,56 @@
+## Q.7
+    ### result
+    ```stdout
+    (a)
+    cnt1 = 1, cnt2 = 1
+    cnt1 = 1, cnt2 = 1
+    (b)
+    cnt1 = 2, cnt2 = 1
+    cnt1 = 2, cnt2 = 1
+    (c)
+    cnt1 = 2, cnt2 = 2
+    cnt1 = 2, cnt2 = 1
+    ```
+
+    ### explanation
+    - (a)については`v1`、`v2`それぞれ`show()`を呼んだだけなので、
+      初期化された値`cnt1 = 1`、`cnt2 = 1`がそのまま出力される。
+    - (b)については、`incr1()`が呼ばれてクラス変数`cnt1`が
+      インクリメントされたあとで`show()`を呼んでいるため、
+      `v1.show()`でも`v2.show()`でもクラス変数`cnt1 = 2`
+      となって出力される。
+    - (c)については、`incr2()`が呼ばれてv1のインスタンス変数`v1.cnt2`が
+      インクリメントされたあとで`show()`を呼んでいるため、
+      `v1.show()`でのみクラス変数`cnt2 = 2`
+      となって出力される。
+
+
+## Q.8 (b)
+    ### result
+    ```stdout
+    There are 2 vectors.
+    v1: (2.0, 15.0)
+    v2: (4.0, 30.0)
+    v1 and v2 are same? false
+    Double size of v1.
+    v1 and v2 are same? true
+    Length is 30.265491900843113
+    ```
+
+
+## Q.8 (c)
+    ### result
+    ```stdout
+    There are 2 vectors.
+    v1: (2.0, 15.0)
+    v2: (4.0, 30.0)
+    v1 and v2 are same? false
+    Double size of v1.
+    v1 and v2 are same? false
+    Length is 15.132745950421556
+    ```
+
+    ### explanation
+    - `constMult()`では自身には変更を加えず、要請された変更を施した
+    `MyVector`のインスタンスを生成して返すように実装されている。
+    そのため代入を無くしたことでv1が変更されず、上のような実行結果になったと言える。
